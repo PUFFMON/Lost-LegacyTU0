@@ -106,7 +106,7 @@ void IUIScene_HUD::updateFrameTick()
 	else if (pMinecraft->localgameModes[iPad]->hasExperience())
 	{
 		// Update xp progress
-		ShowExpBar(true);
+		ShowExpBar(false);
 
 		SetExpBarProgress(pMinecraft->localplayers[iPad]->experienceProgress, pMinecraft->localplayers[iPad]->getXpNeededForNextLevel());
 
@@ -211,7 +211,7 @@ void IUIScene_HUD::renderPlayerHealth()
 
 	if(armor > 0)
 	{
-		ShowArmour(true);
+		ShowArmour(false);
 		SetArmour(armor);
 	}
 	else
@@ -225,7 +225,7 @@ void IUIScene_HUD::renderPlayerHealth()
 	{
 		SetRidingHorse(false, false, 0);
 
-		ShowFood(true);
+		ShowFood(false);
 		ShowHorseHealth(false);
 		m_horseHealth = 0;
 

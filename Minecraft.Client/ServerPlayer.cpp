@@ -29,6 +29,7 @@
 #include "../Minecraft.World/net.minecraft.world.scores.criteria.h"
 #include "../Minecraft.World/net.minecraft.stats.h"
 #include "../Minecraft.World/net.minecraft.locale.h"
+#include "../Minecraft.World/net.minecraft.world.entity.monster.h" // Sails: added for the awwMan cheat code to work
 
 #include "../Minecraft.World/Pos.h"
 #include "../Minecraft.World/Random.h"
@@ -36,6 +37,16 @@
 #include "../Minecraft.World/LevelChunk.h"
 #include "LevelRenderer.h"
 
+extern float g_cheatSnd; // Sails: added for cheatSFX
+
+static bool s_seenNight = false;
+
+extern bool g_Soup;
+extern bool g_Woody;
+extern bool g_awwMan;
+extern bool g_Triple; 
+
+// Sails: any extern bools above this comment are all cheat related 
 
 ServerPlayer::ServerPlayer(MinecraftServer *server, Level *level, const wstring& name, ServerPlayerGameMode *gameMode) : Player(level, name)
 {
@@ -308,6 +319,66 @@ void ServerPlayer::doTick(bool sendChunks, bool dontDelayChunks/*=false*/, bool 
 void ServerPlayer::doTickA()
 {
 	Player::tick();
+
+	if (g_Soup) // Sails: added for the soup cheat
+	{
+		g_Soup = false; // this stops the code from running over and over, i had to learn the hard way :/
+
+		for (unsigned int i = 0; i < inventory->items.length; i++)
+		{
+			if (inventory->getItem(i) == nullptr)
+			{
+				inventory->setItem(i, shared_ptr<ItemInstance> (new ItemInstance(Item::mushroomStew, 1)));
+			}
+		}
+	}
+	
+	else if (g_Woody) // Sails: added for the Woody cheat
+	{
+		g_Woody = false;
+
+		for (unsigned int i = 0; i < inventory->items.length; i++)
+		{
+			if (inventory->getItem(i) == nullptr)
+			{
+				inventory->setItem(i, shared_ptr<ItemInstance> (new ItemInstance(Tile::wood, 1)));
+			}
+		}
+	}
+	
+	if (g_awwMan) // Sails: added for the awwMan cheat
+	{
+		g_awwMan = false;
+
+		shared_ptr<Creeper> creeper = shared_ptr<Creeper>(new Creeper(level));
+		creeper->moveTo(x, y, z, yRot, 0.00f);
+		level->addEntity(creeper);
+	}
+
+	if (!g_Triple) // Sails: this is for the nosleep cheat, will disable cheat at the end of night
+	{
+		s_seenNight = false;
+	}
+	else
+	{
+		long long t = level->getDayTime() % 24000;
+		bool isNight = (t>= 13000 && t < 23000);
+
+		if (isNight)
+			s_seenNight = true;
+		else if (s_seenNight)
+		{
+			g_Triple = false;
+			s_seenNight = false;
+		}
+	}
+
+	if (g_cheatSnd > 0.0f)
+	{
+		float pitch = g_cheatSnd;
+		g_cheatSnd = 0.0f;
+		level->playSound(x, y, z, eSoundType_RANDOM_ORB, 0.5f, pitch);
+	}
 
 	for (unsigned int i = 0; i < inventory->getContainerSize(); i++)
 	{

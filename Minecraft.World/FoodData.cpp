@@ -75,18 +75,6 @@ void FoodData::tick(shared_ptr<Player> player)
 			tickTimer = 0;
 		}
 	}
-	else if (foodLevel <= FoodConstants::STARVE_LEVEL)
-	{
-		tickTimer++;
-		if (tickTimer >= FoodConstants::HEALTH_TICK_COUNT)
-		{
-			if (player->getHealth() > 10 || difficulty >= Difficulty::HARD || (player->getHealth() > 1 && difficulty >= Difficulty::NORMAL))
-			{
-				player->hurt(DamageSource::starve, 1);
-			}
-			tickTimer = 0;
-		}
-	}
 	else
 	{
 		tickTimer = 0;

@@ -6,6 +6,7 @@ using namespace std;
 #include "GoalSelector.h"
 #include "SharedConstants.h"
 
+class GameType;
 class CombatTracker;
 class AttributeInstance;
 class AttributeModifier;

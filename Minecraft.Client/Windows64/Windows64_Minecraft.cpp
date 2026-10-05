@@ -49,6 +49,24 @@
 #include "Network/WinsockNetLayer.h"
 #include "Windows64_Xuid.h"
 #include "Common/UI/UI.h"
+#include <string>
+#include <cctype>
+#include <cstring>
+
+bool g_bVSync = true;           
+bool g_bFullscreen = false;      
+
+bool g_superJump = false;
+bool g_sprintCheat = false;
+bool g_lilJump = false;
+bool g_Soup = false;
+bool g_Woody = false;
+bool g_awwMan = false;
+bool g_Triple = false;
+
+float g_cheatSnd = 0.0f; // Sails: added for cheat soundFXs (0 means nothing to play)
+
+static std::string g_cheatBuf;
 
 // Forward-declare the internal Renderer class and its global instance from 4J_Render_PC_d.lib.
 // C4JRender (RenderManager) is a stateless wrapper — all D3D state lives in InternalRenderManager.
@@ -498,6 +516,12 @@ static bool g_bInSizeMove = false;     // true while the user is dragging the wi
 static int  g_pendingResizeW = 0;      // deferred resize dimensions
 static int  g_pendingResizeH = 0;
 
+static bool Bufendswith(const std::string& s, const char* code)
+{
+	size_t n = strlen(code);
+	return s.size() >= n && s.compare(s.size() - n, n, code) == 0; 
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
@@ -544,6 +568,58 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		// Buffer typed characters so UIScene_Keyboard can dispatch them to the Iggy Flash player
 		if (wParam >= 0x20 || wParam == 0x08 || wParam == 0x0D) // printable chars + backspace + enter
 			g_KBMInput.OnChar(static_cast<wchar_t>(wParam));
+
+		// Sails: add cheats
+		if (wParam >= 0x20 && wParam < 0x7F)
+		{
+			g_cheatBuf += (char)tolower((int)wParam);
+			if (g_cheatBuf.size() > 32)
+				g_cheatBuf.erase(0, g_cheatBuf.size() - 32);
+
+			if (Bufendswith(g_cheatBuf, "bunny"))
+			{
+				g_superJump = !g_superJump;
+				g_cheatSnd = g_superJump ? 1.0f : 0.7f; // Sails: this will play sound when cheat is active, high = on, low = off
+				if (g_superJump) g_lilJump = false;
+				g_cheatBuf.clear();
+			}
+			else if (Bufendswith(g_cheatBuf, "sp33d"))
+			{
+				g_sprintCheat = !g_sprintCheat;
+				g_cheatSnd = g_sprintCheat ? 1.2f : 0.65f;
+				g_cheatBuf.clear();
+			}
+			else if (Bufendswith(g_cheatBuf, "liljump"))
+			{
+				g_lilJump = !g_lilJump;
+				g_cheatSnd = g_lilJump ? 2.0f : 0.6f;
+				g_cheatBuf.clear();
+			}
+			else if (Bufendswith(g_cheatBuf, "soup"))
+			{
+				g_Soup = true;
+				g_cheatSnd = g_Soup = 1.45f;
+				g_cheatBuf.clear();
+			}
+			else if (Bufendswith(g_cheatBuf, "ilik3wood"))
+			{
+				g_Woody = true;
+				g_cheatSnd = g_Woody = 0.67f;
+				g_cheatBuf.clear();
+			}
+			else if (Bufendswith(g_cheatBuf, "awwman"))
+			{
+				g_awwMan = true;
+				g_cheatSnd = g_awwMan = 1.3f; 
+				g_cheatBuf.clear();
+			}
+			else if (Bufendswith(g_cheatBuf, "nosl33p"))
+			{
+				g_Triple = true;
+				g_cheatSnd = g_Triple = 1.256f;
+				g_cheatBuf.clear();
+			}
+		}
 		break;
 
 	case WM_KEYDOWN:
@@ -675,6 +751,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		return DefWindowProcW(hWnd, message, wParam, lParam);
 	}
 	return 0;
+
 }
 
 //
@@ -911,13 +988,19 @@ HRESULT InitDevice()
 //--------------------------------------------------------------------------------------
 // Render the frame
 //--------------------------------------------------------------------------------------
+
+static LONG s_oldStyle = 0;
+static RECT s_oldRect = {};
+
+
+
 void Render()
 {
 	// Just clear the backbuffer
 	const float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; //red,green,blue,alpha
 
 	g_pImmediateContext->ClearRenderTargetView( g_pRenderTargetView, ClearColor );
-	g_pSwapChain->Present( 0, 0 );
+	g_pSwapChain->Present( g_bVSync ? 1 : 0, 0 ); // Sails: adds VSync cause i need :D
 }
 
 //--------------------------------------------------------------------------------------

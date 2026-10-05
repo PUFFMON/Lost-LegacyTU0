@@ -13,13 +13,6 @@ void ClothDyeRecipes::addRecipes(Recipes *r)
 		r->addShapelessRecipy(new ItemInstance(Tile::wool, 1, ColoredTile::getItemAuxValueForTileData(i)), //
 			L"zzg",
 			new ItemInstance(Item::dye_powder, 1, i), new ItemInstance(Item::items[Tile::wool_Id], 1, 0),L'D');
-		r->addShapedRecipy(new ItemInstance(Tile::clayHardened_colored, 8, ColoredTile::getItemAuxValueForTileData(i)), //
-			L"sssczczg",
-			L"###",
-			L"#X#",
-			L"###",
-			L'#', new ItemInstance(Tile::clayHardened),
-			L'X', new ItemInstance(Item::dye_powder, 1, i),L'D');
 
 //#if 0
 //		r->addShapedRecipy(new ItemInstance(Tile::stained_glass, 8, ColoredTile::getItemAuxValueForTileData(i)), //
@@ -116,12 +109,7 @@ void ClothDyeRecipes::addRecipes(Recipes *r)
 
 	for (int i = 0; i < 16; i++)
 	{
-		r->addShapedRecipy(new ItemInstance(Tile::woolCarpet, 3, i),
-			L"sczg",
-			L"##",
-			L'#', new ItemInstance(Tile::wool, 1, i),
-			L'D'
-			);
+	
 	}
 }
 

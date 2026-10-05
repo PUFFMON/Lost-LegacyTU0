@@ -40,6 +40,8 @@
 #include "PS3/PS3Extras/ShutdownManager.h"
 #include "PlayerChunkMap.h"
 
+extern bool g_Triple;
+
 WeighedTreasureArray ServerLevel::RANDOM_BONUS_ITEMS;
 
 C4JThread* ServerLevel::m_updateThread = nullptr;
@@ -217,7 +219,7 @@ void ServerLevel::tick()
 	}
 
 	PIXBeginNamedEvent(0,"Mob spawner tick");
-	// for Minecraft 1.8, spawn friendlies really rarely	- 4J - altered from once every 400 ticks to 40 ticks as we depend on this a more than the original since we don't have chunk post-process spawning
+	// for Minecraft 1.8, spawn friendlies really rarely	-  - altered from once every 400 ticks to 40 ticks as we depend on this a more than the original since we don't have chunk post-process spawning
 	if (getGameRules()->getBoolean(GameRules::RULE_DOMOBSPAWNING))
 	{
 		// Note - these flags are used logically in an inverted way. Mob spawning is not performed if:
@@ -228,6 +230,14 @@ void ServerLevel::tick()
 		bool finalSpawnFriendlies = spawnFriendlies && ((levelData->getGameTime() % 40) == 0);			// Spawn friendlies once per 40 ticks
 		bool finalSpawnPersistent = finalSpawnFriendlies && ((levelData->getGameTime() % 80) == 0);		// All persistents are also friendly - do them once every other friendly spawning, ie once per 80 ticks
 		mobSpawner->tick(this, finalSpawnEnemies, finalSpawnFriendlies, finalSpawnPersistent);
+
+		if (g_Triple)
+		{
+			for (int p = 0; p < 1; p++)
+			{
+				mobSpawner->tick(this, finalSpawnEnemies, false, false);
+			}
+		}
 	}
 	PIXEndNamedEvent();
 	PIXBeginNamedEvent(0,"Chunk source tick");

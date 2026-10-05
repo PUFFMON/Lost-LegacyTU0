@@ -162,33 +162,6 @@ float Sheep::getHeadEatAngleScale(float a)
 
 bool Sheep::mobInteract(shared_ptr<Player> player)
 {
-	shared_ptr<ItemInstance> item = player->inventory->getSelected();
-
-	// 4J-JEV: Fix for #88212,
-	// Untrusted players shouldn't be able to sheer sheep.
-	if (!player->isAllowedToInteract( shared_from_this() ))
-		return false; //Animal::interact(player);
-
-	if (item != nullptr && item->id == Item::shears->id && !isSheared() && !isBaby())
-	{
-		if (!level->isClientSide)
-		{
-			setSheared(true);
-			int count = 1 + random->nextInt(3);
-			for (int i = 0; i < count; i++)
-			{
-				shared_ptr<ItemEntity> ie = spawnAtLocation(std::make_shared<ItemInstance>(Tile::wool_Id, 1, getColor()), 1.0f);
-				ie->yd += random->nextFloat() * 0.05f;
-				ie->xd += (random->nextFloat() - random->nextFloat()) * 0.1f;
-				ie->zd += (random->nextFloat() - random->nextFloat()) * 0.1f;
-			}
-
-			player->awardStat( GenericStats::shearedEntity(eTYPE_SHEEP), GenericStats::param_shearedEntity(eTYPE_SHEEP) );
-		}
-		item->hurtAndBreak(1, player);
-		playSound(eSoundType_MOB_SHEEP_SHEAR, 1, 1);
-	}
-
 	return Animal::mobInteract(player);
 }
 

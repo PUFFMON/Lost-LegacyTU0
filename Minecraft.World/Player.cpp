@@ -43,7 +43,7 @@
 #include "../Minecraft.Client/HumanoidModel.h"
 #include "SoundTypes.h"
 
-
+extern bool g_Triple;
 
 void Player::_init()
 {
@@ -1646,7 +1646,23 @@ void Player::attack(shared_ptr<Entity> entity)
 				zd *= 0.6;
 				setSprinting(false);
 			}
+				if(entity->GetType()==eTYPE_SHEEP)
+		{
+			shared_ptr<Sheep> sheep = dynamic_pointer_cast<Sheep>(entity);
 
+			if (!level->isClientSide && !sheep->isSheared() && !isBaby())
+			{
+				sheep->setSheared(true);
+				int count = 1 + random->nextInt(3);
+            	for (int i = 0; i < count; i++)
+				{
+                	shared_ptr<ItemEntity> ie = spawnAtLocation(shared_ptr<ItemInstance>( new ItemInstance(Tile::wool_Id, 1, sheep->getColor()) ), 1.0f);
+                	ie->yd += random->nextFloat() * 0.05f;
+                	ie->xd += (random->nextFloat() - random->nextFloat()) * 0.1f;
+                	ie->zd += (random->nextFloat() - random->nextFloat()) * 0.1f;
+            	}
+			}
+		}
 			if (bCrit)
 			{
 				crit(entity);
@@ -1766,6 +1782,8 @@ bool Player::isLocalPlayer()
 
 Player::BedSleepingResult Player::startSleepInBed(int x, int y, int z, bool bTestUse)
 {
+	if (g_Triple) return OTHER_PROBLEM;
+
 	if (!level->isClientSide || bTestUse)
 	{
 		if (isSleeping() || !isAlive())

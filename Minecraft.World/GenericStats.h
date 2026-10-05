@@ -59,7 +59,6 @@ public:
 	static Stat* tamedEntity(eINSTANCEOF entityId) { return instance->get_tamedEntity(entityId); }
 	static Stat* curedEntity(eINSTANCEOF entityId) { return instance->get_curedEntity(entityId); }
 	static Stat* craftedEntity(eINSTANCEOF entityId) { return instance->get_craftedEntity(entityId); }
-	static Stat* shearedEntity(eINSTANCEOF entityId) { return instance->get_shearedEntity(entityId); }
 
 	static Stat* totalBlocksMined() { return instance->get_totalBlocksMined(); }
 	static Stat* timePlayed() { return instance->get_timePlayed(); }
@@ -168,7 +167,6 @@ public:
 	static byteArray param_tamedEntity(eINSTANCEOF mobType);
 	static byteArray param_curedEntity(eINSTANCEOF mobType);
 	static byteArray param_craftedEntity(eINSTANCEOF mobType);
-	static byteArray param_shearedEntity(eINSTANCEOF mobType);
 
 	static byteArray param_time(int timediff);
 

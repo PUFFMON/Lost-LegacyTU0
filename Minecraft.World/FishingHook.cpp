@@ -431,7 +431,6 @@ int FishingHook::retrieve()
 		ie->Entity::yd = ya * speed + sqrt(dist) * 0.08;
 		ie->Entity::zd = za * speed;
 		level->addEntity(ie);
-		owner->level->addEntity(std::make_shared<ExperienceOrb>(owner->level, owner->x, owner->y + 0.5f, owner->z + 0.5f, random->nextInt(6) + 1)); // 4J Stu brought forward from 1.4
 		dmg = 1;
 	}
 	if (inGround) dmg = 2;

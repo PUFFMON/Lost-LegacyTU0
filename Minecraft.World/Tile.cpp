@@ -939,17 +939,13 @@ void Tile::popResource(Level *level, int x, int y, int z, shared_ptr<ItemInstanc
 	level->addEntity(item);
 }
 
-// Brought forward for TU7
+// Brought forward for TU7 
+// Sails: Changed so ore doesnt spawn XP
 void Tile::popExperience(Level *level, int x, int y, int z, int amount)
 {
 	if (!level->isClientSide)
 	{
-		while (amount > 0)
-		{
-			int newCount = ExperienceOrb::getExperienceValue(amount);
-			amount -= newCount;
-			level->addEntity(std::make_shared<ExperienceOrb>(level, x + .5, y + .5, z + .5, newCount));
-		}
+		
 	}
 }
 

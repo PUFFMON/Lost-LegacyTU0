@@ -27,7 +27,7 @@ void Dimension::init(Level *level)
 
 void Dimension::updateLightRamp()
 {
-	float ambientLight = 0.00f;
+	float ambientLight = (id == -1) ? 0.1f : 0.05f;
 	for (int i = 0; i <= Level::MAX_BRIGHTNESS; i++)
 	{
 		float v = (1 - i / static_cast<float>(Level::MAX_BRIGHTNESS));
@@ -137,12 +137,6 @@ bool Dimension::isNaturalDimension()
 
 float *Dimension::getSunriseColor(float td, float a)
 {
-	unsigned int clr1 = Minecraft::GetInstance()->getColourTable()->getColor( eMinecraftColour_Sky_Dawn_Dark ); // 0xB23333
-	double r1 = ( (clr1>>16)&0xFF )/255.0f, g1 = ( (clr1>>8)&0xFF )/255.0, b1 = ( clr1&0xFF )/255.0;
-
-	unsigned int clr2 = Minecraft::GetInstance()->getColourTable()->getColor( eMinecraftColour_Sky_Dawn_Bright ); // 0xFFE533
-	double r2 = ( (clr2>>16)&0xFF )/255.0f, g2 = ( (clr2>>8)&0xFF )/255.0, b2 = ( clr2&0xFF )/255.0;
-
 	float span = 0.4f;
 	float tt = Mth::cos(td * PI * 2) - 0.0f;
 	float mid = -0.0f;
@@ -151,12 +145,10 @@ float *Dimension::getSunriseColor(float td, float a)
 		float aa = ((tt - mid) / span) * 0.5f + 0.5f;
 		float mix = 1 - (((1 - sin(aa * PI))) * 0.99f);
 		mix = mix * mix;
-		//sunriseCol[0] = (aa * 0.3f + 0.7f);
-		//sunriseCol[1] = (aa * aa * 0.7f + 0.2f);
-		//sunriseCol[2] = (aa * aa * 0.0f + 0.2f);
-		sunriseCol[0] = (aa * (r2-r1) + r1);
-		sunriseCol[1] = (aa * (g2-g1) + g1);
-		sunriseCol[2] = (aa * (b2-b1) + b1);
+
+		sunriseCol[0] = (aa * 0.3f + 0.7f);
+		sunriseCol[1] = (aa * aa * 0.7f + 0.2f);
+		sunriseCol[2] = (aa * aa * 0.0f + 0.2f); 
 		sunriseCol[3] = mix;
 		return sunriseCol;
 	}
@@ -166,11 +158,11 @@ float *Dimension::getSunriseColor(float td, float a)
 
 Vec3 *Dimension::getFogColor(float td, float a) const
 {
-	float br = Mth::cos(td * PI * 2) * 2 + 0.5f;
+	float br = Mth::cos(td * 3.1415927f * 2.0f) * 2.0f + 0.5f;
 	if (br < 0.0f) br = 0.0f;
 	if (br > 1.0f) br = 1.0f;
 
-	unsigned int baseFogColour = Minecraft::GetInstance()->getColourTable()->getColor( eMinecraftColour_Default_Fog_Colour );
+	unsigned int baseFogColour = 0xC0D8FF;
 	float r = ((baseFogColour >> 16) & 0xff) / 255.0f;
 	float g = ((baseFogColour >> 8) & 0xff) / 255.0f;
 	float b = ((baseFogColour) & 0xff) / 255.0f;

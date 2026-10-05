@@ -870,11 +870,6 @@ byteArray GenericStats::param_craftedEntity(eINSTANCEOF entityId)
 	return instance->getParam_craftedEntity(entityId);
 }
 
-byteArray GenericStats::param_shearedEntity(eINSTANCEOF entityId)
-{
-	return instance->getParam_shearedEntity(entityId);
-}
-
 byteArray GenericStats::param_time(int timediff)
 {
 	return instance->getParam_time(timediff);

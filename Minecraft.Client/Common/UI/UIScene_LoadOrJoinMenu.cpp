@@ -1102,6 +1102,11 @@ void UIScene_LoadOrJoinMenu::AddDefaultButtons()
 
     for ( LevelGenerationOptions *levelGen : *app.getLevelGenerators() )
     {
+        if (levelGen->isTutorial())  // Sails: added to disable TU12 "play tutorial" button 
+        {
+            continue;
+        }
+
         // retrieve the save icon from the texture pack, if there is one
         unsigned int uiTexturePackID=levelGen->getRequiredTexturePackId();
 

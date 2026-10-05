@@ -75,6 +75,10 @@ UIScene_MainMenu::UIScene_MainMenu(int iPad, void *initData, UILayer *parentLaye
 	m_bWaitingForDLCInfo=false;
 #endif
 
+	removeControl( &m_buttons[(int)eControl_UnlockOrDLC], false ); 
+	removeControl( &m_buttons[(int)eControl_Leaderboards], false );
+	// Sails: added to rid the world of DLC (MC Store) and Leaderboards
+
 	doHorizontalResizeCheck();
 
 	m_splash = L"";
@@ -179,12 +183,6 @@ void UIScene_MainMenu::handleGainFocus(bool navBack)
 	ProfileManager.ClearGameUsers();
 #endif
 		
-	if(navBack && ProfileManager.IsFullVersion())
-	{
-		// Replace the Unlock Full Game with Downloadable Content
-		m_buttons[static_cast<int>(eControl_UnlockOrDLC)].setLabel(IDS_DOWNLOADABLECONTENT);
-	}
-
 #if TO_BE_IMPLEMENTED
 	// Fix for #45154 - Frontend: DLC: Content can only be downloaded from the frontend if you have not joined/exited multiplayer
 	XBackgroundDownloadSetMode(XBACKGROUND_DOWNLOAD_MODE_ALWAYS_ALLOW);
@@ -222,7 +220,19 @@ void UIScene_MainMenu::handleGainFocus(bool navBack)
 	//splashIndex = 194; // Very long string
 	//splashIndex = 295; // Coloured
 	//splashIndex = 296; // Noise
+
 	m_splash = m_splashes.at( splashIndex );
+	
+	// Sails: added to allow for personalised splashes
+	wstring name = convStringToWstring( ProfileManager.GetGamertag( ProfileManager.GetPrimaryPad() ) );
+	if(name.empty()) name = L"Player";
+
+	const wstring token = L"{username}";
+	size_t pos;
+	while ((pos = m_splash.find(token)) != wstring::npos)
+	{
+		m_splash.replace(pos, token.length(), name);
+	}
 }
 
 wstring UIScene_MainMenu::getMoviePath()
@@ -242,6 +252,9 @@ void UIScene_MainMenu::handleReload()
 	// Allowed to not have achievements in the menu
 	removeControl( &m_buttons[(int)eControl_Achievements], false );
 #endif
+	removeControl( &m_buttons[(int)eControl_UnlockOrDLC], false ); 
+	removeControl( &m_buttons[(int)eControl_Leaderboards], false );
+	// Sails: added to hide Leaderboard and DLC buttons on reload
 }
 
 void UIScene_MainMenu::handleInput(int iPad, int key, bool repeat, bool pressed, bool released, bool &handled)

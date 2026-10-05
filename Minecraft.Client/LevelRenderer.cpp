@@ -1017,6 +1017,21 @@ void LevelRenderer::renderSky(float alpha)
 	float sg = static_cast<float>(sc->y);
 	float sb = static_cast<float>(sc->z);
 
+        float timeOfDay = level[playerIndex]->getTimeOfDay(alpha);
+        float blend = 0.0f;
+
+        if (timeOfDay >= 0.9167f || timeOfDay <= 0.2083f) {
+          blend = 1.0f;
+      } else if (timeOfDay >= 0.8959f && timeOfDay < 0.9167f) {
+          blend = (timeOfDay - 0.8959f) / 0.0208f;
+      } else if (timeOfDay > 0.2083f && timeOfDay <= 0.2291f) {
+          blend = 1.0f - ((timeOfDay - 0.2083f) / 0.0208f);
+      }
+
+            sr = sr * (1.0f - blend) + (0.5490f * blend);
+            sg = sg * (1.0f - blend) + (0.5333f * blend);
+            sb = sb * (1.0f - blend) + (0.9725f * blend);
+
 	if (mc->options->anaglyph3d)
 	{
 		float srr = (sr * 30 + sg * 59 + sb * 11) / 100;

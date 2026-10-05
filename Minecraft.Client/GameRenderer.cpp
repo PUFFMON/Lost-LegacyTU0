@@ -828,10 +828,12 @@ void GameRenderer::turnOnLightLayer(double alpha)
 	}
 #endif
 	RenderManager.TextureBindVertex(getLightTexture(mc->player->GetXboxPad(), mc->level));
+#if 0
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+#endif
 }
 
 // 4J - change brought forward from 1.8.2
@@ -865,7 +867,7 @@ void GameRenderer::updateLightTexture(float a)
             float sky = level->dimension->brightnessRamp[i / 16] * darken;
             const float block = level->dimension->brightnessRamp[i % 16] * (blr * 0.1f + 1.5f);
 
-            if (level->skyFlashTime < 0)
+            if (level->skyFlashTime > 0)
             {
                 sky = level->dimension->brightnessRamp[i / 16];
             }
@@ -952,9 +954,9 @@ float GameRenderer::ComputeGammaFromSlider(float slider0to100)
     slider = min(slider, 100.0f);
 
     if (slider > 50.0f)
-        return 1.0f + (slider - 50.0f) / 50.0f * 1.2f; // 1.0 -> 1.5
+        return 1.0f + (slider - 50.0f) / 50.0f * 3.0f; // 1.0 -> 4.0
     else
-        return 1.0f - (50.0f - slider) / 50.0f * 0.4f; // 1.0 -> 0.5
+        return 1.0f - (50.0f - slider) / 50.0f * 0.85f; // 1.0 -> 0.15
 }
 
 void GameRenderer::CachePlayerGammas()

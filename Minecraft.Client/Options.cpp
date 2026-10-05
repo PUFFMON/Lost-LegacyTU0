@@ -166,7 +166,7 @@ void Options::init()
 	fixedCamera = false;
 	flySpeed = 1;
 	cameraSpeed = 1;
-	guiScale = 0;
+	guiScale = 2; // Sails: changed to 2 in order to *hopefully* lock GUI scale, TU0 didnt have the option to change this
 	particles = 0;
 	fov = 0;
 	gamma = 0;
@@ -249,7 +249,7 @@ void Options::toggle(const Options::Option *option, int dir)
 {
     if (option == Option::INVERT_MOUSE) invertYMouse = !invertYMouse;
     if (option == Option::RENDER_DISTANCE) viewDistance = (viewDistance + dir) & 3;
-    if (option == Option::GUI_SCALE) guiScale = (guiScale + dir) & 3;
+    if (option == Option::GUI_SCALE) guiScale = 2; // Sails: this will lock GUI scale to two
 	if (option == Option::PARTICLES) particles = (particles + dir) % 3;
 
 	// 4J-PB - changing

@@ -68,13 +68,6 @@ void FurnaceResultSlot::checkTakeAchievements(shared_ptr<ItemInstance> carried)
 			}
 			amount = baseValue;
 		}
-
-		while (amount > 0)
-		{
-			int newCount = ExperienceOrb::getExperienceValue(amount);
-			amount -= newCount;
-			player->level->addEntity(std::make_shared<ExperienceOrb>(player->level, player->x, player->y + .5, player->z + .5, newCount));
-		}
 	}
 
 #ifdef _DURANGO

@@ -103,11 +103,4 @@ void ToolRecipies::addRecipes(Recipes *r)
 			}
 		}
 	}
-	r->addShapedRecipy(new ItemInstance(static_cast<Item *>(Item::shears)), 
-		L"sscig",
-        L" #", //
-        L"# ", //
-		L'#', Item::ironIngot,
-		L'T'
-		);
 }

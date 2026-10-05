@@ -2,7 +2,7 @@
 
 #include "FoodConstants.h"
 
-const int FoodConstants::MAX_FOOD = 20;
+const int FoodConstants::MAX_FOOD = 10; // Sails: changed from 20 to 10
 const float FoodConstants::MAX_SATURATION = static_cast<float>(FoodConstants::MAX_FOOD);
 const float FoodConstants::START_SATURATION = static_cast<float>(FoodConstants::MAX_SATURATION) / 4.0f;
 const float FoodConstants::SATURATION_FLOOR = FoodConstants::MAX_SATURATION / 8.0f;
@@ -10,10 +10,10 @@ const float FoodConstants::SATURATION_FLOOR = FoodConstants::MAX_SATURATION / 8.
 // this value modifies how quickly food is dropped
 const float FoodConstants::EXHAUSTION_DROP = 4.0f;
 
-// number of game ticks to change health because of food
-const int FoodConstants::HEALTH_TICK_COUNT = 80;
+// number of game ticks to change health because of food - Sails: changed value from 80 to 10
+const int FoodConstants::HEALTH_TICK_COUNT = 10;
 
-const int FoodConstants::HEAL_LEVEL = 18;
+const int FoodConstants::HEAL_LEVEL = 10;   // Sails: changed from 18 to 10
 const int FoodConstants::STARVE_LEVEL = 0;
 
 // some saturation guidelines

@@ -1214,7 +1214,6 @@ void EnderDragon::tickDeath()
 			{
 				int newCount = ExperienceOrb::getExperienceValue(xpCount);
 				xpCount -= newCount;
-				level->addEntity(std::make_shared<ExperienceOrb>(level, x, y, z, newCount));
 			}
 		}
 		if (dragonDeathTime == 1) 
@@ -1234,7 +1233,6 @@ void EnderDragon::tickDeath()
 		{
 			int newCount = ExperienceOrb::getExperienceValue(xpCount);
 			xpCount -= newCount;
-			level->addEntity(std::make_shared<ExperienceOrb>(level, x, y, z, newCount));
 		}
 		int xo = 5 + random->nextInt(2) * 2 - 1;
 		int zo = 5 + random->nextInt(2) * 2 - 1;

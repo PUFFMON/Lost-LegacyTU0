@@ -37,6 +37,10 @@ const double LivingEntity::MIN_MOVEMENT_DISTANCE = 0.005;
 
 AttributeModifier *LivingEntity::SPEED_MODIFIER_SPRINTING = (new AttributeModifier(eModifierId_MOB_SPRINTING, 0.3f, AttributeModifier::OPERATION_MULTIPLY_TOTAL))->setSerialize(false);
 
+extern bool g_superJump;
+extern bool g_sprintCheat;
+extern bool g_lilJump;
+
 void LivingEntity::_init()
 {
 	attributes = nullptr;
@@ -290,13 +294,7 @@ void LivingEntity::tickDeath()
 		{
 			if (!isBaby() && level->getGameRules()->getBoolean(GameRules::RULE_DOMOBLOOT))
 			{
-				int xpCount = this->getExperienceReward(lastHurtByPlayer);
-				while (xpCount > 0)
-				{
-					int newCount = ExperienceOrb::getExperienceValue(xpCount);
-					xpCount -= newCount;
-					level->addEntity(std::make_shared<ExperienceOrb>(level, x, y, z, newCount));
-				}
+
 			}
 		}
 
@@ -1022,6 +1020,7 @@ bool LivingEntity::isAlive()
 
 void LivingEntity::causeFallDamage(float distance)
 {
+	if (g_superJump && this ->instanceof(eTYPE_PLAYER)) return; // Sails: Disables fall damage when Super Jump is enabled
 	Entity::causeFallDamage(distance);
 	MobEffectInstance *jumpBoost = getEffect(MobEffect::jump);
 	float padding = jumpBoost != nullptr ? jumpBoost->getAmplifier() + 1 : 0;
@@ -1296,6 +1295,7 @@ MobType LivingEntity::getMobType()
 
 void LivingEntity::setSprinting(bool value)
 {
+	if (g_sprintCheat || (!value && isSprinting()))
 	Entity::setSprinting(value);
 
 	AttributeInstance *speed = getAttribute(SharedMonsterAttributes::MOVEMENT_SPEED);
@@ -1394,7 +1394,7 @@ Icon *LivingEntity::getItemInHandIcon(shared_ptr<ItemInstance> item, int layer)
 
 void LivingEntity::jumpFromGround()
 {
-	yd = 0.42f;
+	yd = 0.42f; // Sails: originally 0.42, change to 01.0 for super jump :D
 	if (hasEffect(MobEffect::jump))
 	{
 		yd += (getEffect(MobEffect::jump)->getAmplifier() + 1) * .1f;
@@ -1407,6 +1407,9 @@ void LivingEntity::jumpFromGround()
 		zd += Mth::cos(rr) * 0.2f;
 	}
 	this->hasImpulse = true;
+
+	if (g_superJump && this->instanceof(eTYPE_PLAYER)) yd = 01.0f; // Sails: this code controls the super jump height
+	if (g_lilJump && this ->instanceof(eTYPE_PLAYER)) yd = 0.2f; // Sails: added for lilJump cheat
 }
 
 void LivingEntity::travel(float xa, float ya)
@@ -1723,6 +1726,14 @@ float LivingEntity::tickHeadTurn(float yBodyRotT, float walkSpeed)
 
 void LivingEntity::aiStep()
 {
+	if (!g_sprintCheat)
+	{
+		AttributeInstance *speed = getAttribute(SharedMonsterAttributes::MOVEMENT_SPEED);
+		if (speed->getModifier(eModifierId_MOB_SPRINTING) != nullptr)
+		{
+			speed->removeModifier (eModifierId_MOB_SPRINTING);
+		}
+	}
 	if (noJumpDelay > 0) noJumpDelay--;
 	if (lSteps > 0)
 	{

@@ -109,8 +109,8 @@ UIScene_LaunchMoreOptionsMenu::UIScene_LaunchMoreOptionsMenu(int iPad, void *ini
 
 #ifdef _LARGE_WORLDS
 	m_labelWorldSize.init(app.GetString(IDS_WORLD_SIZE));
-	m_sliderWorldSize.init(app.GetString(m_iWorldSizeTitleA[m_params->worldSize]),eControl_WorldSize,0,3,m_params->worldSize);
-
+	m_sliderWorldSize.init(app.GetString(m_iWorldSizeTitleA[m_params->worldSize]),eControl_WorldSize,0,0,m_params->worldSize);
+    m_sliderWorldSize.setVisible(false); // Sails: added setVisible(false) to stop the world size slider from being shown in game. 
 	m_checkboxes[eLaunchCheckbox_DisableSaving].init( app.GetString(IDS_DISABLE_SAVING), eLaunchCheckbox_DisableSaving, m_params->bDisableSaving );
 	
 	if(m_params->currentWorldSize != e_worldSize_Unknown)

@@ -154,7 +154,6 @@ void Animal::breedWith(shared_ptr<Animal> target)
 		}
 		level->addEntity(offspring);
 
-		level->addEntity(std::make_shared<ExperienceOrb>(level, x, y, z, random->nextInt(4) + 1));
 	}
 
 	setDespawnProtected();

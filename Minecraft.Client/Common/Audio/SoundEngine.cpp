@@ -177,10 +177,10 @@ void SoundEngine::init(Options* pOptions)
         return;
     }
 
-    ma_engine_set_volume(&m_engine, 1.0f);
+    ma_engine_set_volume(&m_engine, 1.9f);
 
-    m_MasterMusicVolume = 1.0f;
-    m_MasterEffectsVolume = 1.0f;
+    m_MasterMusicVolume = 1.9f;
+    m_MasterEffectsVolume = 1.8f;
 
     m_validListenerCount = 1;
     

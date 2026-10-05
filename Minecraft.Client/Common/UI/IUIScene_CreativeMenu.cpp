@@ -35,32 +35,23 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Tile::cobblestone_Id)
 		ITEM(Tile::sand_Id)
 		ITEM(Tile::sandStone_Id)
-		ITEM_AUX(Tile::sandStone_Id, SandStoneTile::TYPE_SMOOTHSIDE)
-		ITEM_AUX(Tile::sandStone_Id, SandStoneTile::TYPE_HEIROGLYPHS)
-		ITEM(Tile::coalBlock_Id)
 		ITEM(Tile::goldBlock_Id)
 		ITEM(Tile::ironBlock_Id)
 		ITEM(Tile::lapisBlock_Id)
 		ITEM(Tile::diamondBlock_Id)
-		ITEM(Tile::emeraldBlock_Id)
-		ITEM_AUX(Tile::quartzBlock_Id,QuartzBlockTile::TYPE_DEFAULT)
 		ITEM(Tile::coalOre_Id)
 		ITEM(Tile::lapisOre_Id)
 		ITEM(Tile::diamondOre_Id)
 		ITEM(Tile::redStoneOre_Id)
 		ITEM(Tile::ironOre_Id)
 		ITEM(Tile::goldOre_Id)
-		ITEM(Tile::emeraldOre_Id)
-		ITEM(Tile::netherQuartz_Id)
 		ITEM(Tile::unbreakable_Id)
 		ITEM_AUX(Tile::wood_Id,0)
 		ITEM_AUX(Tile::wood_Id,TreeTile::DARK_TRUNK)
 		ITEM_AUX(Tile::wood_Id,TreeTile::BIRCH_TRUNK)
-		ITEM_AUX(Tile::wood_Id,TreeTile::JUNGLE_TRUNK)
 		ITEM_AUX(Tile::treeTrunk_Id, 0)
 		ITEM_AUX(Tile::treeTrunk_Id, TreeTile::DARK_TRUNK)
 		ITEM_AUX(Tile::treeTrunk_Id, TreeTile::BIRCH_TRUNK)
-		ITEM_AUX(Tile::treeTrunk_Id, TreeTile::JUNGLE_TRUNK)
 		ITEM(Tile::gravel_Id)
 		ITEM(Tile::redBrick_Id)
 		ITEM(Tile::mossyCobblestone_Id)
@@ -72,24 +63,7 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Tile::soulsand_Id)
 		ITEM(Tile::glowstone_Id)
 		ITEM(Tile::fence_Id)
-		ITEM(Tile::netherFence_Id)
-		ITEM(Tile::ironFence_Id)
-		ITEM_AUX(Tile::cobbleWall_Id, WallTile::TYPE_NORMAL)
-		ITEM_AUX(Tile::cobbleWall_Id, WallTile::TYPE_MOSSY)
-		ITEM_AUX(Tile::stoneBrick_Id,SmoothStoneBrickTile::TYPE_DEFAULT)
-		ITEM_AUX(Tile::stoneBrick_Id,SmoothStoneBrickTile::TYPE_MOSSY)
-		ITEM_AUX(Tile::stoneBrick_Id,SmoothStoneBrickTile::TYPE_CRACKED)
-		ITEM_AUX(Tile::stoneBrick_Id,SmoothStoneBrickTile::TYPE_DETAIL)
-		ITEM_AUX(Tile::monsterStoneEgg_Id,StoneMonsterTile::HOST_ROCK)
-		ITEM_AUX(Tile::monsterStoneEgg_Id,StoneMonsterTile::HOST_COBBLE)
-		ITEM_AUX(Tile::monsterStoneEgg_Id,StoneMonsterTile::HOST_STONEBRICK)
-		ITEM(Tile::mycel_Id)
-		ITEM(Tile::netherBrick_Id)
-		ITEM(Tile::endStone_Id)
-		ITEM_AUX(Tile::quartzBlock_Id,QuartzBlockTile::TYPE_CHISELED)
-		ITEM_AUX(Tile::quartzBlock_Id,QuartzBlockTile::TYPE_LINES_Y)
 		ITEM(Tile::trapdoor_Id)
-		ITEM(Tile::fenceGate_Id)
 		ITEM(Item::door_wood_Id)
 		ITEM(Item::door_iron_Id)
 		ITEM_AUX(Tile::stoneSlabHalf_Id,StoneSlabTile::STONE_SLAB)
@@ -97,64 +71,21 @@ void IUIScene_CreativeMenu::staticCtor()
 		// AP - changed oak slab to be wood because it wouldn't burn
 //		ITEM_AUX(Tile::stoneSlabHalf_Id,StoneSlabTile::WOOD_SLAB)
 		ITEM_AUX(Tile::woodSlabHalf_Id,0)
-		ITEM_AUX(Tile::woodSlabHalf_Id,TreeTile::DARK_TRUNK)
-		ITEM_AUX(Tile::woodSlabHalf_Id,TreeTile::BIRCH_TRUNK)
-		ITEM_AUX(Tile::woodSlabHalf_Id,TreeTile::JUNGLE_TRUNK)
 		ITEM_AUX(Tile::stoneSlabHalf_Id,StoneSlabTile::COBBLESTONE_SLAB)
-		ITEM_AUX(Tile::stoneSlabHalf_Id,StoneSlabTile::BRICK_SLAB)
-		ITEM_AUX(Tile::stoneSlabHalf_Id,StoneSlabTile::SMOOTHBRICK_SLAB)
-		ITEM_AUX(Tile::stoneSlabHalf_Id,StoneSlabTile::NETHERBRICK_SLAB)
-		ITEM_AUX(Tile::stoneSlabHalf_Id,StoneSlabTile::QUARTZ_SLAB)
 		ITEM(Tile::stairs_wood_Id)
-		ITEM(Tile::stairs_birchwood_Id)
-		ITEM(Tile::stairs_sprucewood_Id)
-		ITEM(Tile::stairs_junglewood_Id)
 		ITEM(Tile::stairs_stone_Id)
-		ITEM(Tile::stairs_bricks_Id)
-		ITEM(Tile::stairs_stoneBrick_Id)
-		ITEM(Tile::stairs_netherBricks_Id)
-		ITEM(Tile::stairs_sandstone_Id)
-		ITEM(Tile::stairs_quartz_Id)
-
-		ITEM(Tile::clayHardened_Id)
-		ITEM_AUX(Tile::clayHardened_colored_Id,14)	// Red
-		ITEM_AUX(Tile::clayHardened_colored_Id,1)	// Orange
-		ITEM_AUX(Tile::clayHardened_colored_Id,4)	// Yellow
-		ITEM_AUX(Tile::clayHardened_colored_Id,5)	// Lime
-		ITEM_AUX(Tile::clayHardened_colored_Id,3)	// Light Blue
-		ITEM_AUX(Tile::clayHardened_colored_Id,9)	// Cyan
-		ITEM_AUX(Tile::clayHardened_colored_Id,11)	// Blue
-		ITEM_AUX(Tile::clayHardened_colored_Id,10)	// Purple
-		ITEM_AUX(Tile::clayHardened_colored_Id,2)	// Magenta
-		ITEM_AUX(Tile::clayHardened_colored_Id,6)	// Pink
-		ITEM_AUX(Tile::clayHardened_colored_Id,0)	// White
-		ITEM_AUX(Tile::clayHardened_colored_Id,8)	// Light Gray
-		ITEM_AUX(Tile::clayHardened_colored_Id,7)	// Gray
-		ITEM_AUX(Tile::clayHardened_colored_Id,15)	// Black
-		ITEM_AUX(Tile::clayHardened_colored_Id,13)	// Green
-		ITEM_AUX(Tile::clayHardened_colored_Id,12)	// Brown
 
 	// Decoration
 	DEF(eCreativeInventory_Decoration)
-		ITEM_AUX(Item::skull_Id,SkullTileEntity::TYPE_SKELETON)
-		ITEM_AUX(Item::skull_Id,SkullTileEntity::TYPE_WITHER)
-		ITEM_AUX(Item::skull_Id,SkullTileEntity::TYPE_ZOMBIE)
-		ITEM_AUX(Item::skull_Id,SkullTileEntity::TYPE_CHAR)
-		ITEM_AUX(Item::skull_Id,SkullTileEntity::TYPE_CREEPER)
 		ITEM(Tile::sponge_Id)
-		ITEM(Tile::melon_Id)
 		ITEM(Tile::pumpkin_Id)
 		ITEM(Tile::litPumpkin_Id)
 		ITEM_AUX(Tile::sapling_Id, Sapling::TYPE_DEFAULT)
 		ITEM_AUX(Tile::sapling_Id, Sapling::TYPE_EVERGREEN)
 		ITEM_AUX(Tile::sapling_Id, Sapling::TYPE_BIRCH)
-		ITEM_AUX(Tile::sapling_Id, Sapling::TYPE_JUNGLE)
 		ITEM_AUX(Tile::leaves_Id, LeafTile::NORMAL_LEAF)
 		ITEM_AUX(Tile::leaves_Id, LeafTile::EVERGREEN_LEAF)
 		ITEM_AUX(Tile::leaves_Id, LeafTile::BIRCH_LEAF)
-		ITEM_AUX(Tile::leaves_Id, LeafTile::JUNGLE_LEAF)
-		ITEM(Tile::vine)
-		ITEM(Tile::waterLily_Id)
 		ITEM(Tile::torch_Id)
 		ITEM_AUX(Tile::tallgrass_Id, TallGrass::DEAD_SHRUB)
 		ITEM_AUX(Tile::tallgrass_Id, TallGrass::TALL_GRASS)
@@ -168,14 +99,10 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Tile::topSnow_Id)
 		// 4J-PB - Already got sugar cane in Materials ITEM_11(Tile::reeds_Id)
 		ITEM(Tile::web_Id)
-		ITEM(Tile::thinGlass_Id)
 		ITEM(Tile::glass_Id)
 		ITEM(Item::painting_Id)
-		ITEM(Item::itemFrame_Id)
 		ITEM(Item::sign_Id)
 		ITEM(Tile::bookshelf_Id)
-		ITEM(Item::flowerPot_Id)
-		ITEM(Tile::hayBlock_Id)
 		ITEM_AUX(Tile::wool_Id,14)	// Red
 		ITEM_AUX(Tile::wool_Id,1)	// Orange
 		ITEM_AUX(Tile::wool_Id,4)	// Yellow
@@ -192,57 +119,6 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Tile::wool_Id,15)	// Black
 		ITEM_AUX(Tile::wool_Id,13)	// Green
 		ITEM_AUX(Tile::wool_Id,12)	// Brown
-
-		ITEM_AUX(Tile::woolCarpet_Id,14)	// Red
-		ITEM_AUX(Tile::woolCarpet_Id,1)	// Orange
-		ITEM_AUX(Tile::woolCarpet_Id,4)	// Yellow
-		ITEM_AUX(Tile::woolCarpet_Id,5)	// Lime
-		ITEM_AUX(Tile::woolCarpet_Id,3)	// Light Blue
-		ITEM_AUX(Tile::woolCarpet_Id,9)	// Cyan
-		ITEM_AUX(Tile::woolCarpet_Id,11)	// Blue
-		ITEM_AUX(Tile::woolCarpet_Id,10)	// Purple
-		ITEM_AUX(Tile::woolCarpet_Id,2)	// Magenta
-		ITEM_AUX(Tile::woolCarpet_Id,6)	// Pink
-		ITEM_AUX(Tile::woolCarpet_Id,0)	// White
-		ITEM_AUX(Tile::woolCarpet_Id,8)	// Light Gray
-		ITEM_AUX(Tile::woolCarpet_Id,7)	// Gray
-		ITEM_AUX(Tile::woolCarpet_Id,15)	// Black
-		ITEM_AUX(Tile::woolCarpet_Id,13)	// Green
-		ITEM_AUX(Tile::woolCarpet_Id,12)	// Brown
-
-		ITEM_AUX(Tile::stained_glass_Id,14)	// Red
-		ITEM_AUX(Tile::stained_glass_Id,1)	// Orange
-		ITEM_AUX(Tile::stained_glass_Id,4)	// Yellow
-		ITEM_AUX(Tile::stained_glass_Id,5)	// Lime
-		ITEM_AUX(Tile::stained_glass_Id,3)	// Light Blue
-		ITEM_AUX(Tile::stained_glass_Id,9)	// Cyan
-		ITEM_AUX(Tile::stained_glass_Id,11)	// Blue
-		ITEM_AUX(Tile::stained_glass_Id,10)	// Purple
-		ITEM_AUX(Tile::stained_glass_Id,2)	// Magenta
-		ITEM_AUX(Tile::stained_glass_Id,6)	// Pink
-		ITEM_AUX(Tile::stained_glass_Id,0)	// White
-		ITEM_AUX(Tile::stained_glass_Id,8)	// Light Gray
-		ITEM_AUX(Tile::stained_glass_Id,7)	// Gray
-		ITEM_AUX(Tile::stained_glass_Id,15)	// Black
-		ITEM_AUX(Tile::stained_glass_Id,13)	// Green
-		ITEM_AUX(Tile::stained_glass_Id,12)	// Brown
-
-		ITEM_AUX(Tile::stained_glass_pane_Id,14)	// Red
-		ITEM_AUX(Tile::stained_glass_pane_Id,1)	// Orange
-		ITEM_AUX(Tile::stained_glass_pane_Id,4)	// Yellow
-		ITEM_AUX(Tile::stained_glass_pane_Id,5)	// Lime
-		ITEM_AUX(Tile::stained_glass_pane_Id,3)	// Light Blue
-		ITEM_AUX(Tile::stained_glass_pane_Id,9)	// Cyan
-		ITEM_AUX(Tile::stained_glass_pane_Id,11)	// Blue
-		ITEM_AUX(Tile::stained_glass_pane_Id,10)	// Purple
-		ITEM_AUX(Tile::stained_glass_pane_Id,2)	// Magenta
-		ITEM_AUX(Tile::stained_glass_pane_Id,6)	// Pink
-		ITEM_AUX(Tile::stained_glass_pane_Id,0)	// White
-		ITEM_AUX(Tile::stained_glass_pane_Id,8)	// Light Gray
-		ITEM_AUX(Tile::stained_glass_pane_Id,7)	// Gray
-		ITEM_AUX(Tile::stained_glass_pane_Id,15)	// Black
-		ITEM_AUX(Tile::stained_glass_pane_Id,13)	// Green
-		ITEM_AUX(Tile::stained_glass_pane_Id,12)	// Brown
 
 #ifndef _CONTENT_PACKAGE
 	DEF(eCreativeInventory_ArtToolsDecorations)
@@ -269,113 +145,44 @@ void IUIScene_CreativeMenu::staticCtor()
 	// Redstone
 	DEF(eCreativeInventory_Redstone)
 		ITEM(Tile::dispenser_Id)
-		ITEM(Tile::noteblock_Id)
-		ITEM(Tile::pistonBase_Id)
-		ITEM(Tile::pistonStickyBase_Id)
 		ITEM(Tile::tnt_Id)
 		ITEM(Tile::lever_Id)
 		ITEM(Tile::button_stone_Id)
-		ITEM(Tile::button_wood_Id)
 		ITEM(Tile::pressurePlate_stone_Id)
 		ITEM(Tile::pressurePlate_wood_Id)
 		ITEM(Item::redStone_Id)
-		ITEM(Tile::redstoneBlock_Id)
 		ITEM(Tile::redstoneTorch_on_Id)
 		ITEM(Item::repeater_Id)
-		ITEM(Tile::redstoneLight_Id)
-		ITEM(Tile::tripWireSource_Id)
-		ITEM(Tile::daylightDetector_Id)
-		ITEM(Tile::dropper_Id)
-		ITEM(Tile::hopper_Id)
-		ITEM(Item::comparator_Id)
-		ITEM(Tile::chest_trap_Id)
-		ITEM(Tile::weightedPlate_heavy_Id)
-		ITEM(Tile::weightedPlate_light_Id)
 
 	// Transport
 	DEF(eCreativeInventory_Transport)
 		ITEM(Tile::rail_Id)
 		ITEM(Tile::goldenRail_Id)
 		ITEM(Tile::detectorRail_Id)
-		ITEM(Tile::activatorRail_Id)
 		ITEM(Tile::ladder_Id)
 		ITEM(Item::minecart_Id)
 		ITEM(Item::minecart_chest_Id)
 		ITEM(Item::minecart_furnace_Id)
-		ITEM(Item::minecart_hopper_Id)
-		ITEM(Item::minecart_tnt_Id)
 		ITEM(Item::saddle_Id)
 		ITEM(Item::boat_Id)
 
 	// Miscellaneous
 	DEF(eCreativeInventory_Misc)
 		ITEM(Tile::chest_Id)
-		ITEM(Tile::enderChest_Id)
 		ITEM(Tile::workBench_Id)
 		ITEM(Tile::furnace_Id)
-		ITEM(Item::brewingStand_Id)
-		ITEM(Tile::enchantTable_Id)
-		ITEM(Tile::beacon_Id)
-		ITEM(Tile::endPortalFrameTile_Id)
 		ITEM(Tile::jukebox_Id)
-		ITEM(Tile::anvil_Id);
 		ITEM(Item::bed_Id)
 		ITEM(Item::bucket_empty_Id)
 		ITEM(Item::bucket_lava_Id)
 		ITEM(Item::bucket_water_Id)
 		ITEM(Item::bucket_milk_Id)
-		ITEM(Item::cauldron_Id)
 		ITEM(Item::snowBall_Id)
 		ITEM(Item::paper_Id)
 		ITEM(Item::book_Id)
-		ITEM(Item::enderPearl_Id)
-		ITEM(Item::eyeOfEnder_Id)
-		ITEM(Item::nameTag_Id)
-		ITEM(Item::netherStar_Id)
-		ITEM_AUX(Item::spawnEgg_Id, 50); // Creeper
-		ITEM_AUX(Item::spawnEgg_Id, 51); // Skeleton
-		ITEM_AUX(Item::spawnEgg_Id, 52); // Spider
-		ITEM_AUX(Item::spawnEgg_Id, 54); // Zombie
-		ITEM_AUX(Item::spawnEgg_Id, 55); // Slime
-		ITEM_AUX(Item::spawnEgg_Id, 56); // Ghast
-		ITEM_AUX(Item::spawnEgg_Id, 57); // Zombie Pigman
-		ITEM_AUX(Item::spawnEgg_Id, 58); // Enderman
-		ITEM_AUX(Item::spawnEgg_Id, 59); // Cave Spider
-		ITEM_AUX(Item::spawnEgg_Id, 60); // Silverfish
-		ITEM_AUX(Item::spawnEgg_Id, 61); // Blaze
-		ITEM_AUX(Item::spawnEgg_Id, 62); // Magma Cube
-		ITEM_AUX(Item::spawnEgg_Id, 65); // Bat
-		ITEM_AUX(Item::spawnEgg_Id, 66); // Witch
-		ITEM_AUX(Item::spawnEgg_Id, 90); // Pig
-		ITEM_AUX(Item::spawnEgg_Id, 91); // Sheep
-		ITEM_AUX(Item::spawnEgg_Id, 92); // Cow
-		ITEM_AUX(Item::spawnEgg_Id, 93); // Chicken
-		ITEM_AUX(Item::spawnEgg_Id, 94); // Squid
-		ITEM_AUX(Item::spawnEgg_Id, 95); // Wolf
-		ITEM_AUX(Item::spawnEgg_Id, 96); // Mooshroom
-		ITEM_AUX(Item::spawnEgg_Id, 98); // Ozelot
-		ITEM_AUX(Item::spawnEgg_Id, 100); // Horse
-		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_DONKEY + 1) << 12) ); // Donkey
-		ITEM_AUX(Item::spawnEgg_Id, 100 | ((EntityHorse::TYPE_MULE + 1) << 12)); // Mule
-		ITEM_AUX(Item::spawnEgg_Id, 120); // Villager
 		ITEM(Item::record_01_Id)
 		ITEM(Item::record_02_Id)
-		ITEM(Item::record_03_Id)
-		ITEM(Item::record_04_Id)
-		ITEM(Item::record_05_Id)
-		ITEM(Item::record_06_Id)
-		ITEM(Item::record_07_Id)
-		ITEM(Item::record_08_Id)
-		ITEM(Item::record_09_Id)
-		ITEM(Item::record_10_Id)
-		ITEM(Item::record_11_Id)
-		ITEM(Item::record_12_Id)
 
-		BuildFirework(list, FireworksItem::TYPE_SMALL, DyePowderItem::LIGHT_BLUE, 1, true, false);
-		BuildFirework(list, FireworksItem::TYPE_CREEPER, DyePowderItem::GREEN, 2, false, false);
-		BuildFirework(list, FireworksItem::TYPE_MAX, DyePowderItem::RED, 2, false, false, DyePowderItem::ORANGE);
-		BuildFirework(list, FireworksItem::TYPE_BURST, DyePowderItem::MAGENTA, 3, true, false, DyePowderItem::BLUE);
-		BuildFirework(list, FireworksItem::TYPE_STAR, DyePowderItem::YELLOW, 2, false, true, DyePowderItem::ORANGE);
 
 #ifndef _CONTENT_PACKAGE
 	DEF(eCreativeInventory_ArtToolsMisc)
@@ -396,7 +203,6 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Item::apple_Id)
 		ITEM(Item::apple_gold_Id)
 		ITEM_AUX(Item::apple_gold_Id,1) // Enchanted
-		ITEM(Item::melon_Id)
 		ITEM(Item::mushroomStew_Id)
 		ITEM(Item::bread_Id)
 		ITEM(Item::cake_Id)
@@ -405,18 +211,6 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Item::fish_raw_Id)
 		ITEM(Item::porkChop_cooked_Id)
 		ITEM(Item::porkChop_raw_Id)
-		ITEM(Item::beef_cooked_Id)
-		ITEM(Item::beef_raw_Id)
-		ITEM(Item::chicken_raw_Id)
-		ITEM(Item::chicken_cooked_Id)
-		ITEM(Item::rotten_flesh_Id)
-		ITEM(Item::spiderEye_Id)
-		ITEM(Item::potato_Id)
-		ITEM(Item::potatoBaked_Id)
-		ITEM(Item::potatoPoisonous_Id)
-		ITEM(Item::carrots_Id)
-		ITEM(Item::carrotGolden_Id)
-		ITEM(Item::pumpkinPie_Id)
 
 	// Tools, Armour and Weapons (Complete)
 	DEF(eCreativeInventory_ToolsArmourWeapons)
@@ -475,44 +269,18 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Item::hatchet_diamond_Id)
 		ITEM(Item::hoe_diamond_Id)
 
-		ITEM(Item::fireball_Id)
 		ITEM(Item::clock_Id)
-		ITEM(Item::shears_Id)
 		ITEM(Item::fishingRod_Id)
-		ITEM(Item::carrotOnAStick_Id)
-		ITEM(Item::lead_Id)
-		ITEM(Item::horseArmorDiamond_Id)
-		ITEM(Item::horseArmorGold_Id)
-		ITEM(Item::horseArmorMetal_Id)
 
-		for(unsigned int i = 0; i < Enchantment::enchantments.length; ++i)
-		{
-			Enchantment *enchantment = Enchantment::enchantments[i];
-			if (enchantment == nullptr || enchantment->category == nullptr) continue;
-			list->push_back(Item::enchantedBook->createForEnchantment(new EnchantmentInstance(enchantment, enchantment->getMaxLevel())));
-		}
-
-#ifndef _CONTENT_PACKAGE
-		if(app.DebugSettingsOn())
-		{
-			shared_ptr<ItemInstance> debugSword = std::make_shared<ItemInstance>(Item::sword_diamond_Id, 1, 0);
-			debugSword->enchant( Enchantment::damageBonus, 50 );
-			debugSword->setHoverName(L"Sword of Debug");
-			list->push_back(debugSword);
-		}
-#endif
+		
 
 	// Materials
 	DEF(eCreativeInventory_Materials)
 		ITEM(Item::coal_Id)
-		ITEM_AUX(Item::coal_Id,1)
 		ITEM(Item::diamond_Id)
-		ITEM(Item::emerald_Id)
 		ITEM(Item::ironIngot_Id)
 		ITEM(Item::goldIngot_Id)
-		ITEM(Item::netherQuartz_Id)
 		ITEM(Item::brick_Id)
-		ITEM(Item::netherbrick_Id)
 		ITEM(Item::stick_Id)
 		ITEM(Item::bowl_Id)
 		ITEM(Item::bone_Id)
@@ -524,16 +292,11 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM(Item::clay_Id)
 		ITEM(Item::yellowDust_Id)
 		ITEM(Item::seeds_wheat_Id)
-		ITEM(Item::seeds_melon_Id)
-		ITEM(Item::seeds_pumpkin_Id)
 		ITEM(Item::wheat_Id)
 		ITEM(Item::reeds_Id)
 		ITEM(Item::egg_Id)
 		ITEM(Item::sugar_Id)
 		ITEM(Item::slimeBall_Id)
-		ITEM(Item::blazeRod_Id)
-		ITEM(Item::goldNugget_Id)
-		ITEM(Item::netherwart_seeds_Id)
 		ITEM_AUX(Item::dye_powder_Id,1)		// Red
 		ITEM_AUX(Item::dye_powder_Id,14)	// Orange
 		ITEM_AUX(Item::dye_powder_Id,11)	// Yellow
@@ -550,119 +313,6 @@ void IUIScene_CreativeMenu::staticCtor()
 		ITEM_AUX(Item::dye_powder_Id,0)		// black (ink sac)
 		ITEM_AUX(Item::dye_powder_Id,2)		// Green
 		ITEM_AUX(Item::dye_powder_Id,3)		// Brown
-
-		// Brewing (TODO)
-		DEF(eCreativeInventory_Brewing)
-		ITEM(Item::expBottle_Id)
-
-		// 4J Stu - Anything else added here also needs to be added to the key handler below
-		ITEM(Item::ghastTear_Id)
-		ITEM(Item::fermentedSpiderEye_Id)
-		ITEM(Item::blazePowder_Id)
-		ITEM(Item::magmaCream_Id)
-		ITEM(Item::speckledMelon_Id)
-		ITEM(Item::glassBottle_Id)
-		ITEM_AUX(Item::potion_Id,0) // Water bottle
-		//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_TYPE_AWKWARD)) // Awkward Potion
-
-
-		DEF(eCreativeInventory_Potions_Basic)
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_SPEED))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_POISON))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_INSTANTHEALTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_STRENGTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_SLOWNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_INSTANTDAMAGE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_SPEED))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_POISON))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_INSTANTHEALTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_STRENGTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_SLOWNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_INSTANTDAMAGE))
-
-		DEF(eCreativeInventory_Potions_Level2)
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_SPEED))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_POISON))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_INSTANTHEALTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_NIGHTVISION))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_INVISIBILITY))
-
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_STRENGTH))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_SLOWNESS))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_INSTANTDAMAGE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_SPEED))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_POISON))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_INSTANTHEALTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_NIGHTVISION))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_INVISIBILITY))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_STRENGTH))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_SLOWNESS))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_INSTANTDAMAGE))
-
-		DEF(eCreativeInventory_Potions_Extended)
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_SPEED))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_POISON))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_INSTANTHEALTH))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_NIGHTVISION))	// 4J- Moved here as there isn't a weak variant of this potion.
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, 0, MASK_INVISIBILITY))	// 4J- Moved here as there isn't a weak variant of this potion.
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_STRENGTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_SLOWNESS))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_INSTANTDAMAGE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_SPEED))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_POISON))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_INSTANTHEALTH))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_NIGHTVISION))		// 4J- Moved here as there isn't a weak variant of this potion.
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, 0, MASK_INVISIBILITY))	// 4J- Moved here as there isn't a weak variant of this potion.
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_STRENGTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_SLOWNESS))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_INSTANTDAMAGE))
-
-		DEF(eCreativeInventory_Potions_Level2_Extended)
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2EXTENDED, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2EXTENDED, MASK_SPEED))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2EXTENDED, MASK_POISON))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_INSTANTHEALTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2EXTENDED, MASK_NIGHTVISION))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2EXTENDED, MASK_INVISIBILITY))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_NIGHTVISION))	// 4J- Moved here as there isn't a weak variant of this potion.
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_INVISIBILITY))	// 4J- Moved here as there isn't a weak variant of this potion.
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2EXTENDED, MASK_STRENGTH))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_EXTENDED, MASK_SLOWNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(0, MASK_LEVEL2, MASK_INSTANTDAMAGE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2EXTENDED, MASK_REGENERATION))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2EXTENDED, MASK_SPEED))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_FIRE_RESISTANCE))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2EXTENDED, MASK_POISON))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_INSTANTHEALTH))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2EXTENDED, MASK_NIGHTVISION))
-			//ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2EXTENDED, MASK_INVISIBILITY))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_NIGHTVISION))		// 4J- Moved here as there isn't a weak variant of this potion.
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_INVISIBILITY))	// 4J- Moved here as there isn't a weak variant of this potion.
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_WEAKNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2EXTENDED, MASK_STRENGTH))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_EXTENDED, MASK_SLOWNESS))
-			ITEM_AUX(Item::potion_Id,MACRO_MAKEPOTION_AUXVAL(MASK_SPLASH, MASK_LEVEL2, MASK_INSTANTDAMAGE))
-
 
 		specs = new TabSpec*[eCreativeInventoryTab_COUNT];
 

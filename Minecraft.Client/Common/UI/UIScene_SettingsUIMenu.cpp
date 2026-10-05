@@ -23,7 +23,8 @@ UIScene_SettingsUIMenu::UIScene_SettingsUIMenu(int iPad, void *initData, UILayer
 
 	swprintf( (WCHAR *)TempString, 256, L"%ls: %d", app.GetString( IDS_SLIDER_UISIZESPLITSCREEN ),app.GetGameSettings(m_iPad,eGameSetting_UISizeSplitscreen)+1);	
 	m_sliderUISizeSplitscreen.init(TempString,eControl_UISizeSplitscreen,1,3,app.GetGameSettings(m_iPad,eGameSetting_UISizeSplitscreen)+1);
-
+	removeControl(&m_sliderUISize, true);
+	removeControl(&m_sliderUISizeSplitscreen, true); // Sails: removeControl hides the UIScale Slider, and its locked to 2 for TU0 Parity
 	doHorizontalResizeCheck();
 
 	bool bInGame=(Minecraft::GetInstance()->level!=nullptr);

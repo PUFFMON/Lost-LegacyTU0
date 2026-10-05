@@ -5,6 +5,8 @@
 #include "Material.h"
 #include "MobCategory.h"
 
+extern bool g_Triple;
+
 MobCategory *MobCategory::monster = nullptr;
 MobCategory *MobCategory::creature = nullptr;
 MobCategory *MobCategory::ambient = nullptr;
@@ -50,11 +52,13 @@ const eINSTANCEOF MobCategory::getEnumBaseClass()
 
 int MobCategory::getMaxInstancesPerChunk()
 {
+	if (g_Triple && !isFriendly()) return 500; // Sails: added to increase mob cap when "nosl33p" is active, the higher the number, the more spawns
 	return m_max;
 }
 
 int MobCategory::getMaxInstancesPerLevel()	// 4J added
 {
+	if (g_Triple && !isFriendly()) return 500; // Sails: added to increase mob cap when "nosl33p" is active ^
 	return m_maxPerLevel;
 }
 
