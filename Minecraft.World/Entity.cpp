@@ -25,6 +25,8 @@
 #include "../Minecraft.Client/ServerLevel.h"
 #include "../Minecraft.Client/PlayerList.h"
 
+extern bool g_xpFeet;
+
 const wstring Entity::RIDING_TAG = L"Riding";
 
 //int Entity::entityCounter = 2048;		// 4J - changed initialiser to 2048, as we are using range 0 - 2047 as special unique smaller ids for things that need network tracked
@@ -991,9 +993,13 @@ void Entity::playStepSound(int xt, int yt, int zt, int t)
 {
 	const Tile::SoundType *soundType = Tile::tiles[t]->soundType;
 	MemSect(31);
-
-	if (GetType() == eTYPE_PLAYER)
 	{
+		if (g_xpFeet && this->instanceof(eTYPE_PLAYER)) // Sails: this allows the xp sound to play every time the player walks
+		{
+			level->playSound(x, y, z, eSoundType_RANDOM_ORB, 0.5f, (1.5f + random->nextFloat()) * 0.5f);
+			return;
+		}
+		
 		// should we turn off step sounds?
 		unsigned int uiAnimOverrideBitmask=getAnimOverrideBitmask(); // this is masked for custom anim off, and force anim
 
