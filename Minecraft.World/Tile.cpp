@@ -774,7 +774,7 @@ Icon *Tile::getTexture(LevelSource *level, int x, int y, int z, int face)
 	int tileId = level->getTile(x, y, z);
 	int tileData = level->getData(x, y, z);
 
-	if( tileId == Tile::leaves_Id )
+	/*if( tileId == Tile::leaves_Id )
 	{
 		bool opaque = true;
 
@@ -802,7 +802,7 @@ Icon *Tile::getTexture(LevelSource *level, int x, int y, int z, int face)
 			icon = getTexture(face, tileData);
 		}
 		return icon;
-	}
+	}*/
 	return getTexture(face, tileData);
 }
 

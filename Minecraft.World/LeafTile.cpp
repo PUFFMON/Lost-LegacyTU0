@@ -356,3 +356,8 @@ void LeafTile::registerIcons(IconRegister *iconRegister)
 		}
 	}
 }
+
+bool LeafTile::isCubeShaped()
+{
+	return false;
+}
