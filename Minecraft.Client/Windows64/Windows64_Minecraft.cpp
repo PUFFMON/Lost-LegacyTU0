@@ -63,6 +63,7 @@ bool g_Soup = false;
 bool g_Woody = false;
 bool g_awwMan = false;
 bool g_Triple = false;
+bool g_xpFeet = false;
 
 float g_cheatSnd = 0.0f; // Sails: added for cheat soundFXs (0 means nothing to play)
 
@@ -579,7 +580,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (Bufendswith(g_cheatBuf, "bunny"))
 			{
 				g_superJump = !g_superJump;
-				g_cheatSnd = g_superJump ? 1.0f : 0.7f; // Sails: this will play sound when cheat is active, high = on, low = off
+				g_cheatSnd = g_superJump ? 1.0f : 0.7f; // Sails: this will play sound when cheat is active, higher pitch = higher number, lower pitch = lower number 
 				if (g_superJump) g_lilJump = false;
 				g_cheatBuf.clear();
 			}
@@ -617,6 +618,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			{
 				g_Triple = true;
 				g_cheatSnd = g_Triple = 1.256f;
+				g_cheatBuf.clear();
+			}
+			else if (Bufendswith(g_cheatBuf, "mon3y"))
+			{
+				g_xpFeet = !g_xpFeet; // Sails: this code allows the Xp sound to play every time the player walks
+				g_cheatSnd = g_xpFeet ? 1.5f : 0.5f;
 				g_cheatBuf.clear();
 			}
 		}
