@@ -14,7 +14,7 @@ Currently these are the features changed:
 - classic SFX
 - classic Textures
 - cheat codes
-- a stipped down survival crafting menu
+- a stripped down survival crafting menu
 
 Known Issues:
 - world can be resized after creation
