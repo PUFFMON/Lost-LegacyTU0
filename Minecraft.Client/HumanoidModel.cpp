@@ -3,6 +3,7 @@
 #include "../Minecraft.World/Mth.h"
 #include "../Minecraft.World/Entity.h"
 #include "ModelPart.h"
+#include "../Minecraft.World/Player.h"
 
 // 4J added 
 
@@ -183,10 +184,14 @@ void HumanoidModel::render(shared_ptr<Entity> entity, float time, float r, float
 void HumanoidModel::setupAnim(float time, float r, float bob, float yRot, float xRot, float scale, shared_ptr<Entity> entity, unsigned int uiBitmaskOverrideAnim)
 {
 	//bool bIsAttacking = (attackTime > -9990.0f);
-	
 	{
-		head->yRot = yRot / (float) (180.0f / PI);
-		head->xRot = xRot / (float) (180.0f / PI);
+
+	//4J - brought back tu0 classic cameraMode
+
+		shared_ptr<Player> player = std::dynamic_pointer_cast<Player>(entity);
+
+		head->yRot = yRot / (float)(180.0f / PI);
+        head->xRot = (player && player->ThirdPersonView() == 2 ? -xRot : xRot) / (float)(180.0f / PI);
 		hair->yRot = head->yRot;
 		hair->xRot = head->xRot;
 		body->z = 0.0f;
