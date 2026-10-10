@@ -73,4 +73,5 @@ public:
 
 	virtual unsigned int getDescriptionId(int iData = -1);
 	void registerIcons(IconRegister *iconRegister);
+	virtual bool isCubeShaped();
 };

@@ -3022,7 +3022,7 @@ bool Level::isSolidRenderTile(int x, int y, int z)
 	// textures exist already for non-fancy graphics). Note: this tile-specific code is here rather than making some new virtual method in the tiles,
 	// for the sake of efficiency - I don't imagine we'll be doing much more of this sort of thing
 
-	if( tile->id == Tile::leaves_Id )
+	/*if( tile->id == Tile::leaves_Id )
 	{
 		int axo[6] = { 1,-1, 0, 0, 0, 0};
 		int ayo[6] = { 0, 0, 1,-1, 0, 0};
@@ -3037,7 +3037,7 @@ bool Level::isSolidRenderTile(int x, int y, int z)
 		}
 
 		return true;
-	}
+	}*/
 	return tile->isSolidRender(!isClientSide);
 }
 
