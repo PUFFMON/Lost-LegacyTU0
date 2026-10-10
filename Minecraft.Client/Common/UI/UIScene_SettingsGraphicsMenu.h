@@ -18,7 +18,7 @@ private:
 		eControl_InterfaceOpacity
 	};
 
-	UIControl_CheckBox m_checkboxClouds, m_checkboxBedrockFog, m_checkboxCustomSkinAnim; // Checkboxes
+	UIControl_CheckBox m_checkboxClouds, m_checkboxFullscreen, m_checkboxBedrockFog, m_checkboxCustomSkinAnim; // Checkboxes
 	UIControl_Slider m_sliderRenderDistance, m_sliderGamma, m_sliderFOV, m_sliderInterfaceOpacity; // Sliders
 	UI_BEGIN_MAP_ELEMENTS_AND_NAMES(UIScene)
 		UI_MAP_ELEMENT( m_checkboxClouds, "Clouds")

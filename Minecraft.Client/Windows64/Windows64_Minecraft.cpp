@@ -53,8 +53,7 @@
 #include <cctype>
 #include <cstring>
 
-bool g_bVSync = true;           
-bool g_bFullscreen = false;      
+bool g_bVSync = true;                 
 
 bool g_superJump = false;
 bool g_sprintCheat = false;
@@ -1305,6 +1304,7 @@ void ToggleFullscreen()
 				SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
 		}
 	}
+
 	else
 	{
 		SetWindowLong(g_hWnd, GWL_STYLE, dwStyle | WS_OVERLAPPEDWINDOW);

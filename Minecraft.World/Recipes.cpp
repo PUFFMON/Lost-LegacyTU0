@@ -113,14 +113,6 @@ Recipes::Recipes()
 		L'#', Item::stick,
 		L'S');
 
-	addShapedRecipy(new ItemInstance(Tile::ironFence, 16), //
-		L"sscig",
-		L"###", //
-		L"###", //
-
-		L'#', Item::ironIngot,
-		L'S');
-
 	addShapedRecipy(new ItemInstance(Item::door_wood, 1), //
 		L"sssctg",
 		L"##", //
@@ -231,18 +223,12 @@ Recipes::Recipes()
 
 		L'#', Tile::stone,
 		L'S');
+
 	addShapedRecipy(new ItemInstance(Tile::stoneSlabHalf, 6, StoneSlabTile::COBBLESTONE_SLAB), //
 		L"sctg",
 		L"###", //
 
 		L'#', Tile::cobblestone,
-		L'S');
-
-	addShapedRecipy(new ItemInstance(Tile::stoneSlabHalf, 6, StoneSlabTile::SMOOTHBRICK_SLAB), //
-		L"sctg",
-		L"###", //
-
-		L'#', Tile::stoneBrick,
 		L'S');
 
 	addShapedRecipy(new ItemInstance(Tile::woodSlabHalf, 6, 0), //
