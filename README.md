@@ -6,7 +6,7 @@ The current goal of Project Lost Legacy is to bring back the feel of Beta 1.6.6 
 
 Currently these are the features changed:
 - no sprinting, XP or Hunger (needs rework)
-- hit to shear (thanks to Str1k3r)
+- hit to shear (thanks to [str1k3r](https://github.com/S1l3ntStr1ke87))
 - a Creative mode 
 - no UI Slider or World size slider (locked to classic to match TU0)
 - a brand new logo and panorama
