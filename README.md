@@ -1,8 +1,8 @@
-Project Lost Legacy - Bringing TU19 Down to TU0 via Downporting
+Project Lost Legacy - Bringing TU19 Down to Beta 1.6 via Downporting
 
 This project is based on source code of Minecraft Consoles (SMART CMD)
 
-The current goal of Project Lost Legacy is to bring back the feel of TU0 (Beta 1.6.6) by downporting TU19.
+The current goal of Project Lost Legacy is to bring back the feel of Beta 1.6.6 by downporting TU19.
 
 Currently these are the features changed:
 - no sprinting, XP or Hunger (needs rework)
